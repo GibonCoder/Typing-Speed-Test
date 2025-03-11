@@ -26,4 +26,4 @@ class Window:
         self.__root.mainloop()
 
     def set_text(self, text):
-        pass
+        self.__text.insert(0, text)
