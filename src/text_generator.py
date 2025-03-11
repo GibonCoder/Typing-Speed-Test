@@ -2,4 +2,7 @@ import requests as req
 
 
 class TextGenerator:
-    pass
+    def __init__(self):
+        pass
+
+
