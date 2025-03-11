@@ -6,7 +6,7 @@ class TextGenerator:
         pass
 
     def fetch_text(self):
-        res = req.get('https://dummyjson.com/quotes')
+        res = req.get('https://dummyjson.com/quotes/?limit=10')
 
 
 
