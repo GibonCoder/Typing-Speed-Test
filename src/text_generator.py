@@ -15,4 +15,4 @@ class TextGenerator:
         self.__quote = random.choice(self.__quotes)
 
     def get_quote(self):
-        return self.__quote
+        return self.__quote['quote']
