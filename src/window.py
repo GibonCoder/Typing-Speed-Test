@@ -14,6 +14,6 @@ class Window:
         self.__root.title("Speed Typing Test")
 
     def __place_widgets(self):
-        pass
-
-
+        self.__title.grid(row=0, column=1)
+        self.__text.grid(row=1, column=1)
+        self.__user_input.grid(row=2, column=1)
