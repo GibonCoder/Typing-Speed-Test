@@ -9,5 +9,8 @@ class TextGenerator:
         res = req.get('https://dummyjson.com/quotes/?limit=10')
         self.quotes = res.json()
 
+    def get_random_quote(self):
+        pass
+
 
 
