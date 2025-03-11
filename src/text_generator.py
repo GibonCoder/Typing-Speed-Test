@@ -4,8 +4,8 @@ import random
 
 class TextGenerator:
     def __init__(self):
-        self.__quotes = {}
-        self.__quote = {}
+        self.__quotes = None
+        self.__quote = None
 
     def fetch_text(self):
         res = req.get('https://dummyjson.com/quotes/?limit=10')
