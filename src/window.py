@@ -18,4 +18,5 @@ class Window:
         self.__text.grid(row=1, column=1)
         self.__user_input.grid(row=2, column=1)
 
-    def
+    def run_window(self):
+        self.__root.mainloop()
