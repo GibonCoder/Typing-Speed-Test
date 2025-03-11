@@ -3,4 +3,6 @@ from tkinter import ttk
 
 
 class Window:
-    pass
+    def __init__(self):
+        self.__root = tk.Tk()
+
