@@ -4,10 +4,14 @@ from tkinter import ttk
 
 class Window:
     def __init__(self):
+        # Window
         self.__root = tk.Tk()
         self.__title = ttk.Label(text="Test Your Typing Speed")
         self.__text = tk.Text(state='disabled', width=125, height=20)
         self.__user_input = tk.Text(width=125, height=20)
+        # Variables
+        self._text = None
+        self._user_input = None
 
     def configure_window(self):
         self.__root.geometry("1200x800")
@@ -20,3 +24,6 @@ class Window:
 
     def run_window(self):
         self.__root.mainloop()
+
+    def set_text(self, text):
+        pass
