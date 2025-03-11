@@ -9,11 +9,13 @@ class Window:
         self.__text = tk.Text(state='disabled')
         self.__user_input = tk.Text()
 
-    def __configure_window(self):
+    def configure_window(self):
         self.__root.geometry("1200x800")
         self.__root.title("Speed Typing Test")
 
-    def __place_widgets(self):
+    def place_widgets(self):
         self.__title.grid(row=0, column=1)
         self.__text.grid(row=1, column=1)
         self.__user_input.grid(row=2, column=1)
+
+    def
