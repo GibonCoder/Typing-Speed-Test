@@ -11,5 +11,8 @@ class TextGenerator:
         res = req.get('https://dummyjson.com/quotes/?limit=10')
         self.__quotes = res.json()['quotes']
 
-    def get_random_quote(self):
+    def set_random_quote(self):
         self.__quote = random.choice(self.__quotes)
+
+    def get_quote(self):
+        return self.__quotes
