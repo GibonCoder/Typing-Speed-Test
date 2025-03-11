@@ -6,8 +6,8 @@ class Window:
     def __init__(self):
         self.__root = tk.Tk()
         self.__title = ttk.Label(text="Test Your Typing Speed")
-        self.__text = tk.Text(state='disabled')
-        self.__user_input = tk.Text()
+        self.__text = tk.Text(state='disabled', width=125, height=20)
+        self.__user_input = tk.Text(width=125, height=20)
 
     def configure_window(self):
         self.__root.geometry("1200x800")
