@@ -26,4 +26,5 @@ class Window:
         self.__root.mainloop()
 
     def set_text(self, text):
-        self.__text.insert(0, text)
+        self.__text.insert(tk.END, text)
+        self.__text.update()
