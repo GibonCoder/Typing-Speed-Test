@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 
 
 class Window:
@@ -7,7 +6,7 @@ class Window:
         # Window
         self.__root = tk.Tk()
         # Widgets
-        self.__title = ttk.Label(text="Test Your Typing Speed")
+        self.__title = tk.Label(text="Test Your Typing Speed")
         self.__label_left = tk.Label(self.__root, fg='grey')
         self.__label_right = tk.Label(self.__root, fg='grey')
         # Variables
@@ -28,4 +27,6 @@ class Window:
         self.__root.mainloop()
 
     def set_text(self, text):
-        pass
+        self._text = text
+        self.__label_left.configure(text=self._text[0:self._split_point])
+        self.__label_right.configure(text=self._text[self._split_point:])
