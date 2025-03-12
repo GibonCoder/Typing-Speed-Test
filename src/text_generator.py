@@ -12,4 +12,4 @@ class TextGenerator:
         self.__quotes = res.json()['quotes']
 
     def get_random_quote(self):
-        self.__quote = random.choice(self.__quotes)
+        return random.choice(self.__quotes)
