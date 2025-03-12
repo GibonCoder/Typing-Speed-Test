@@ -7,8 +7,6 @@ class Window:
         # Window
         self.__root = tk.Tk()
         self.__title = ttk.Label(text="Test Your Typing Speed")
-        self.__text = tk.Text(state='disabled', width=125, height=20)
-        self.__user_input = tk.Text(width=125, height=20)
         # Variables
         self._text = None
         self._user_input = None
@@ -19,12 +17,9 @@ class Window:
 
     def place_widgets(self):
         self.__title.grid(row=0, column=1)
-        self.__text.grid(row=1, column=1)
-        self.__user_input.grid(row=2, column=1)
 
     def run_window(self):
         self.__root.mainloop()
 
     def set_text(self, text):
-        self.__text.insert(tk.END, text)
-        self.__text.update()
+        pass
