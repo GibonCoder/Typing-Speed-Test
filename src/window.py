@@ -27,6 +27,6 @@ class Window:
         self.__root.mainloop()
 
     def set_text(self, text):
-        self._text = text
+        self._text = text['quote']
         self.__label_left.configure(text=self._text[0:self._split_point])
         self.__label_right.configure(text=self._text[self._split_point:])
