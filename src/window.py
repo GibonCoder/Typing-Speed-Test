@@ -6,7 +6,6 @@ class Window:
         # Window
         self.__root = tk.Tk()
         # Widgets
-        self.__title = tk.Label(text="Test Your Typing Speed")
         self.__label_left = tk.Label(self.__root, fg='grey')
         self.__label_right = tk.Label(self.__root, fg='grey')
         # Variables
@@ -19,7 +18,6 @@ class Window:
         self.__root.title("Speed Typing Test")
 
     def place_widgets(self):
-        self.__title.grid(row=0, column=1)
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
 
