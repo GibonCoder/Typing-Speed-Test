@@ -51,7 +51,7 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
-    def start_test(self, text):
+    def start_test(self):
         self._configure_window()
         self._configure_time()
         self._set_text()
