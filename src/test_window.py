@@ -1,4 +1,7 @@
 import tkinter as tk
+from text_generator import TextGenerator
+
+tg = TextGenerator()
 
 
 class TestWindow:
@@ -29,7 +32,7 @@ class TestWindow:
         self.__root.bind('<Key>', self._key_pressed)
 
     def _configure_time(self):
-        self.__root.after(60000, self._stop_test)
+        self.__root.after(30000, self._stop_test)
         self.__root.after(1000, self._add_second)
 
     def _place_widgets(self):
@@ -41,7 +44,8 @@ class TestWindow:
     def run_window(self):
         self.__root.mainloop()
 
-    def _set_text(self, text):
+    def _set_text(self):
+        text = tg.get_random_quote()
         self._text = text['quote'].lower()
         self.__label_left.configure(text=self._text[0:self._split_point])
         self.__label_right.configure(text=self._text[self._split_point:])
@@ -50,7 +54,7 @@ class TestWindow:
     def start_test(self, text):
         self._configure_window()
         self._configure_time()
-        self._set_text(text)
+        self._set_text()
         self._place_widgets()
 
     def _stop_test(self):
