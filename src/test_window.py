@@ -7,15 +7,18 @@ class TestWindow:
         self._split_point = 0
         self._text = None
         self._user_input = None
-        self.write_able = True
-        self.passed_seconds = 0
+        self._write_able = True
+        self._passed_seconds = 0
+        self._amount_of_words = 0
         # Window
         self.__root = tk.Tk()
         # Widgets
         self.__label_left = tk.Label(self.__root, fg='grey')
         self.__label_right = tk.Label(self.__root, fg='grey')
-        self.__current_letter_label = tk.Label(self.__root, fg='grey')
+        self.__current_letter_label = tk.Label(self.__root, fg='black')
         self.__time_left_label = tk.Label(self.__root, fg='grey', text=f'0 Seconds')
+        self.__result_label = tk.Label(self.__root, text=f'Words per Minute: {self._amount_of_words}', fg='black')
+        self.__result_button = tk.Button(self.__root, text='Retry', command=restart)
 
     def configure_window(self):
         self.__root.geometry("700x700")
@@ -44,11 +47,21 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
-    def _add_second(self):
-        self.passed_seconds += 1
-        self.__time_left_label.configure(text=f'{self.passed_seconds} Seconds')
+    def _stop_test(self):
+        self._write_able = False
 
-        if self.write_able:
+        self._amount_of_words = len(self.__label_left.cget('text').split(' '))
+
+        self.__time_left_label.destroy()
+        self.__current_letter_label.destroy()
+        self.__label_right.destroy()
+        self.__label_left.destroy()
+
+    def _add_second(self):
+        self._passed_seconds += 1
+        self.__time_left_label.configure(text=f'{self._passed_seconds} Seconds')
+
+        if self._write_able:
             self.__root.after(1000, self._add_second)
 
     def _key_pressed(self, event=None):
