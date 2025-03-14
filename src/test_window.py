@@ -18,7 +18,7 @@ class TestWindow:
         self.__current_letter_label = tk.Label(self.__root, fg='black')
         self.__time_left_label = tk.Label(self.__root, fg='grey', text=f'0 Seconds')
         self.__result_label = tk.Label(self.__root, text=f'Words per Minute: {self._amount_of_words}', fg='black')
-        self.__result_button = tk.Button(self.__root, text='Retry', command=restart)
+        self.__result_button = tk.Button(self.__root, text='Retry', command=self.restart)
 
     def _configure_window(self):
         self.__root.geometry("700x700")
