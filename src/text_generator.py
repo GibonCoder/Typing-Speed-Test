@@ -7,8 +7,8 @@ class TextGenerator:
         self.__quotes = None
 
     def fetch_text(self):
-        res = req.get('https://dummyjson.com/quotes/?limit=10')
-        self.__quotes = res.json()['quotes']
+        res = req.get('https://dummyjson.com/posts/?limit=10')
+        self.__quotes = res.json()['posts']
 
     def get_random_quote(self):
         self.fetch_text()
