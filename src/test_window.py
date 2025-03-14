@@ -60,6 +60,10 @@ class TestWindow:
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
+    def restart(self):
+        self.__result_label.destroy()
+        self.__result_button.destroy()
+
     def _add_second(self):
         self._passed_seconds += 1
         self.__time_left_label.configure(text=f'{self._passed_seconds} Seconds')
