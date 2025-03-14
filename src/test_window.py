@@ -12,7 +12,6 @@ class TestWindow:
         self._user_input = None
         self._write_able = True
         self._passed_seconds = 0
-        self._amount_of_words = 0
         # Window
         self.__root = tk.Tk()
         # Widgets
@@ -60,19 +59,23 @@ class TestWindow:
     def _stop_test(self):
         self._write_able = False
 
-        self._amount_of_words = len(self.__label_left.cget('text').split(' '))
+        amount_of_words = len(self.__label_left.cget('text').split(' '))
 
         self.__time_left_label.destroy()
         self.__current_letter_label.destroy()
         self.__label_right.destroy()
         self.__label_left.destroy()
 
+        self.__result_label.configure(text=f'Words per Minute: {amount_of_words}')
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
     def restart(self):
         self.__result_label.destroy()
         self.__result_button.destroy()
+
+        self._write_able = True
+        self._passed_seconds = 0
 
         self.start_test()
 
