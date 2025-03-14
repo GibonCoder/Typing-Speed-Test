@@ -47,7 +47,12 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
-    def start_test(self):
+    def start_test(self, text):
+        self.configure_window()
+        self.configure_time()
+        self.set_text(text)
+        self.place_widgets()
+
 
     def _stop_test(self):
         self._write_able = False
