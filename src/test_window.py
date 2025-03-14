@@ -31,6 +31,7 @@ class TestWindow:
         self.__root.bind('<Key>', self._key_pressed)
 
     def _configure_time(self):
+        self._passed_seconds = 0
         self.__root.after(60000, self._stop_test)
         self.__root.after(1000, self._add_second)
 
@@ -75,7 +76,6 @@ class TestWindow:
         self.__result_button.place_forget()
 
         self._write_able = True
-        self._passed_seconds = 0
 
         self.start_test()
 
