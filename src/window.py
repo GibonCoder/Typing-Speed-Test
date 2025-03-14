@@ -34,3 +34,4 @@ class Window:
         self._text = text['quote'].lower()
         self.__label_left.configure(text=self._text[0:self._split_point])
         self.__label_right.configure(text=self._text[self._split_point:])
+        self.__current_letter_label.configure(text=self._text[self._split_point])
