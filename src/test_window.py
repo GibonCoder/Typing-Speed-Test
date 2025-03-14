@@ -47,6 +47,8 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
+    def start_test(self):
+
     def _stop_test(self):
         self._write_able = False
 
@@ -63,6 +65,8 @@ class TestWindow:
     def restart(self):
         self.__result_label.destroy()
         self.__result_button.destroy()
+
+        self.start_test()
 
     def _add_second(self):
         self._passed_seconds += 1
