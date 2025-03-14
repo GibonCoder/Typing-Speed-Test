@@ -7,6 +7,8 @@ class Window:
         self._split_point = 0
         self._text = None
         self._user_input = None
+        self.write_able = True
+        self.passed_seconds = 0
         # Window
         self.__root = tk.Tk()
         # Widgets
