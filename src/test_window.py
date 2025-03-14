@@ -31,7 +31,7 @@ class TestWindow:
         self.__root.bind('<Key>', self._key_pressed)
 
     def _configure_time(self):
-        self.__root.after(30000, self._stop_test)
+        self.__root.after(60000, self._stop_test)
         self.__root.after(1000, self._add_second)
 
     def _place_widgets(self):
