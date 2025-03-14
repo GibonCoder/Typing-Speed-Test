@@ -23,7 +23,7 @@ class TestWindow:
         self.__result_button = tk.Button(self.__root, text='Retry', command=self.restart)
 
     def _configure_window(self):
-        self.__root.geometry("700x700")
+        self.__root.state('zoomed')
         self.__root.title("Speed Typing Test")
 
         self.__root.option_add("*Label.Font", "consolas 30")
@@ -61,18 +61,18 @@ class TestWindow:
 
         amount_of_words = len(self.__label_left.cget('text').split(' '))
 
-        self.__time_left_label.destroy()
-        self.__current_letter_label.destroy()
-        self.__label_right.destroy()
-        self.__label_left.destroy()
+        self.__time_left_label.place_forget()
+        self.__current_letter_label.place_forget()
+        self.__label_right.place_forget()
+        self.__label_left.place_forget()
 
         self.__result_label.configure(text=f'Words per Minute: {amount_of_words}')
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
     def restart(self):
-        self.__result_label.destroy()
-        self.__result_button.destroy()
+        self.__result_label.place_forget()
+        self.__result_button.place_forget()
 
         self._write_able = True
         self._passed_seconds = 0
