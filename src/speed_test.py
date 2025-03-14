@@ -1,2 +1,0 @@
-class SpeedTest:
-    pass

@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-class Window:
+class TestWindow:
     def __init__(self):
         # Variables
         self._split_point = 0
@@ -23,6 +23,12 @@ class Window:
 
         self.__root.option_add("*Label.Font", "consolas 30")
 
+        self.__root.bind('<Key>', self._key_pressed)
+
+    def configure_time(self):
+        self.__root.after(60000, self._stop_test)
+        self.__root.after(1000, self._add_second)
+
     def place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
@@ -37,3 +43,22 @@ class Window:
         self.__label_left.configure(text=self._text[0:self._split_point])
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
+
+    def _add_second(self):
+        self.passed_seconds += 1
+        self.__time_left_label.configure(text=f'{self.passed_seconds} Seconds')
+
+        if self.write_able:
+            self.__root.after(1000, self._add_second)
+
+    def _key_pressed(self, event=None):
+        try:
+            if event.char.lower() == self.__label_right.cget('text')[0].lower():
+                # Delete letter from the right side
+                self.__label_right.configure(text=self.__label_right.cget('text')[1:])
+                # Add letter to the left side
+                self.__label_left.configure(text=self.__label_left.cget('text') + event.char.lower())
+                # Set the next letter label
+                self.__current_letter_label.configure(text=self.__label_right.cget('text')[0])
+        except tk.TclError:
+            pass
