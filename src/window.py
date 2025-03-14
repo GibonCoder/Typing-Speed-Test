@@ -16,8 +16,10 @@ class Window:
         self.__time_left_label = tk.Label(self.__root, fg='grey', text=f'0 Seconds')
 
     def configure_window(self):
-        self.__root.geometry("900x900")
+        self.__root.geometry("700x700")
         self.__root.title("Speed Typing Test")
+
+        self.__root.option_add("*Label.Font", "consolas 30")
 
     def place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
