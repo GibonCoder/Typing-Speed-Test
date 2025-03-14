@@ -20,7 +20,7 @@ class TestWindow:
         self.__result_label = tk.Label(self.__root, text=f'Words per Minute: {self._amount_of_words}', fg='black')
         self.__result_button = tk.Button(self.__root, text='Retry', command=restart)
 
-    def configure_window(self):
+    def _configure_window(self):
         self.__root.geometry("700x700")
         self.__root.title("Speed Typing Test")
 
@@ -28,11 +28,11 @@ class TestWindow:
 
         self.__root.bind('<Key>', self._key_pressed)
 
-    def configure_time(self):
+    def _configure_time(self):
         self.__root.after(60000, self._stop_test)
         self.__root.after(1000, self._add_second)
 
-    def place_widgets(self):
+    def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
         self.__current_letter_label.place(relx=0.5, rely=0.6, anchor=tk.N)
@@ -41,18 +41,17 @@ class TestWindow:
     def run_window(self):
         self.__root.mainloop()
 
-    def set_text(self, text):
+    def _set_text(self, text):
         self._text = text['quote'].lower()
         self.__label_left.configure(text=self._text[0:self._split_point])
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
     def start_test(self, text):
-        self.configure_window()
-        self.configure_time()
-        self.set_text(text)
-        self.place_widgets()
-
+        self._configure_window()
+        self._configure_time()
+        self._set_text(text)
+        self._place_widgets()
 
     def _stop_test(self):
         self._write_able = False
