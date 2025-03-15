@@ -76,17 +76,3 @@ class TestWindow:
         self._write_able = True
 
         self.start_test()
-
-
-# Adjust it
-    def _key_pressed(self, event=None):
-        try:
-            if event.char.lower() == self.__label_right.cget('text')[0].lower():
-                # Delete letter from the right side
-                self.__label_right.configure(text=self.__label_right.cget('text')[1:])
-                # Add letter to the left side
-                self.__label_left.configure(text=self.__label_left.cget('text') + event.char.lower())
-                # Set the next letter label
-                self.__current_letter_label.configure(text=self.__label_right.cget('text')[0])
-        except tk.TclError:
-            pass
