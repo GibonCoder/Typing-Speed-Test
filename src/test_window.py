@@ -10,7 +10,6 @@ class TestWindow:
         # Variables
         self._split_point = 0
         self._text = None
-        self._user_input = None
         self.st = SpeedTest()
         # Window
         self.__root = tk.Tk()
@@ -53,7 +52,7 @@ class TestWindow:
         self._place_widgets()
 
     def _stop_test(self):
-        self._write_able = False
+        self.st.stop_test()
 
         wpm = self.st.stop_test(self.__label_left)
 
