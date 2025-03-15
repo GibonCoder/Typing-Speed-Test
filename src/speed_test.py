@@ -25,3 +25,15 @@ class SpeedTest:
 
     def restart_test(self):
         self._write_able = True
+
+    def key_pressed(self, tklib=None, event=None, user_lbl=None, system_lbl=None, letter_lbl=None):
+        try:
+            if event.char.lower() == system_lbl.cget('text')[0].lower():
+                # Delete letter  from the right side (generated text)
+                system_lbl.configure(text=system_lbl.cget('text')[1:])
+                # Add letter to the left side (user input)
+                user_lbl.configure(text=user_lbl.cget('text') + event.char.lower())
+                # Update current letter label
+                letter_lbl.configure(text=system_lbl.cget('text')[0])
+        except tklib.TclError:
+            pass
