@@ -28,7 +28,10 @@ class TestWindow:
 
         self.__root.option_add("*Label.Font", "consolas 30")
 
-        self.__root.bind('<Key>', self._key_pressed)
+        self.__root.bind('<Key>', self.st.key_pressed(tklib=tk,
+                                                      user_lbl=self.__label_right,
+                                                      system_lbl=self.__label_left,
+                                                      letter_lbl=self.__current_letter_label))
 
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
@@ -46,7 +49,6 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
-    # Adjust it
     def start_test(self):
         self._configure_window()
         self.st.config_time(self.__root, self.__time_left_label)
