@@ -30,12 +30,6 @@ class TestWindow:
 
         self.__root.bind('<Key>', self._key_pressed)
 
-    # Remove it
-    def _configure_time(self):
-        self._passed_seconds = 0
-        self.__root.after(60000, self._stop_test)
-        self.__root.after(1000, self._add_second)
-
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
@@ -83,13 +77,6 @@ class TestWindow:
 
         self.start_test()
 
-    # Remove it
-    def _add_second(self):
-        self._passed_seconds += 1
-        self.__time_left_label.configure(text=f'{self._passed_seconds} Seconds')
-
-        if self._write_able:
-            self.__root.after(1000, self._add_second)
 
 # Adjust it
     def _key_pressed(self, event=None):
