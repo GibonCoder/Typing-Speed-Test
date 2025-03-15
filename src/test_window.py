@@ -57,14 +57,14 @@ class TestWindow:
     def _stop_test(self):
         self._write_able = False
 
-        amount_of_words = len(self.__label_left.cget('text').split(' '))
+        wpm = self.st.stop_test(self.__label_left)
 
         self.__time_left_label.place_forget()
         self.__current_letter_label.place_forget()
         self.__label_right.place_forget()
         self.__label_left.place_forget()
 
-        self.__result_label.configure(text=f'Words per Minute: {amount_of_words}')
+        self.__result_label.configure(text=f'Words per Minute: {wpm}')
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
