@@ -45,13 +45,13 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
-    def start_test(self):
+    def start(self):
         self._configure_window()
         self.st.config_time(self.__root, self.__time_left_label)
         self._set_text()
         self._place_widgets()
 
-    def _stop_test(self):
+    def _stop(self):
         self.st.stop_test()
 
         wpm = self.st.stop_test(self.__label_left)
