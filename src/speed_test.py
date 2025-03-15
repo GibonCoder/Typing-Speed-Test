@@ -3,9 +3,9 @@ class SpeedTest:
         self._write_able = True
         self._passed_seconds = 0
 
-    def config_time(self, window, time_lbl):
+    def config_time(self, window, user_lbl, time_lbl):
         self._passed_seconds = 0
-        window.after(60000, self.stop_test)
+        window.after(60000, lambda: self.stop_test(user_lbl))
         window.after(1000, lambda: self._add_second(window, time_lbl))
 
     def _add_second(self, window, time_lbl):
