@@ -15,3 +15,10 @@ class SpeedTest:
 
         if self._write_able:
             window.after(1000, lambda: self._add_second(window, time_lbl))
+
+    def stop_test(self, user_lbl):
+        self._write_able = False
+
+        amount_of_words = len(user_lbl.cget('text'.split(' ')))
+
+        return amount_of_words
