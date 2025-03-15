@@ -73,6 +73,6 @@ class TestWindow:
         self.__result_label.place_forget()
         self.__result_button.place_forget()
 
-        self._write_able = True
+        self.st.restart_test()
 
         self.start_test()
