@@ -28,9 +28,6 @@ class TestWindow:
         self.__root.option_add("*Label.Font", "consolas 30")
 
         self.__root.bind('<Key>', self._key_pressed)
-
-        self.st.config_time(self.__root, self.__label_left, self.__time_left_label)
-
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
@@ -51,6 +48,8 @@ class TestWindow:
         self._configure_window()
         self._set_text()
         self._place_widgets()
+
+        self.st.config_time(self.__root, self.__label_left, self.__time_left_label)
 
     def _stop(self):
 
