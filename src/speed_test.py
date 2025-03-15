@@ -18,7 +18,7 @@ class SpeedTest:
     def stop_test(self, user_lbl):
         self._write_able = False
 
-        amount_of_words = len(user_lbl.cget('text'.split(' ')))
+        amount_of_words = len(user_lbl.cget('text').split(' '))
 
         return amount_of_words
 
