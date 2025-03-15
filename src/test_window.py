@@ -29,6 +29,8 @@ class TestWindow:
 
         self.__root.bind('<Key>', self._key_pressed)
 
+        self.st.config_time(self.__root, self.__label_left, self.__time_left_label)
+
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
@@ -47,7 +49,6 @@ class TestWindow:
 
     def start(self):
         self._configure_window()
-        self.st.config_time(self.__root, self.__time_left_label)
         self._set_text()
         self._place_widgets()
 
@@ -70,7 +71,7 @@ class TestWindow:
 
         self.st.restart_test()
 
-        self.start_test()
+        self.start()
 
     def _key_pressed(self, event=None):
         try:
