@@ -52,7 +52,6 @@ class TestWindow:
         self._place_widgets()
 
     def _stop(self):
-        self.st.stop_test()
 
         wpm = self.st.stop_test(self.__label_left)
 
