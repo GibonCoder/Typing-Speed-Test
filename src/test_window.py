@@ -28,6 +28,9 @@ class TestWindow:
         self.__root.option_add("*Label.Font", "consolas 30")
 
         self.__root.bind('<Key>', self._key_pressed)
+
+        self.__root.after(60000, self._stop)
+
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
         self.__label_right.place(relx=0.5, rely=0.5, anchor=tk.W)
