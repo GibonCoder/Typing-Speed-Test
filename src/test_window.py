@@ -49,11 +49,10 @@ class TestWindow:
     # Adjust it
     def start_test(self):
         self._configure_window()
-        self._configure_time()
+        self.st.config_time(self.__root, self.__time_left_label)
         self._set_text()
         self._place_widgets()
 
-    # Adjust it
     def _stop_test(self):
         self._write_able = False
 
@@ -68,7 +67,6 @@ class TestWindow:
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
-    # Adjust it
     def restart(self):
         self.__result_label.place_forget()
         self.__result_button.place_forget()

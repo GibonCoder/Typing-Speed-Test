@@ -6,7 +6,7 @@ class SpeedTest:
 
     def config_time(self, window, time_lbl):
         self._passed_seconds = 0
-        window.after(60000, self._stop_test)
+        window.after(60000, self.stop_test)
         window.after(1000, lambda: self._add_second(window, time_lbl))
 
     def _add_second(self, window, time_lbl):
