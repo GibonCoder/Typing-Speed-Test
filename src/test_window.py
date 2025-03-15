@@ -28,10 +28,7 @@ class TestWindow:
 
         self.__root.option_add("*Label.Font", "consolas 30")
 
-        self.__root.bind('<Key>', self.st.key_pressed(tklib=tk,
-                                                      user_lbl=self.__label_right,
-                                                      system_lbl=self.__label_left,
-                                                      letter_lbl=self.__current_letter_label))
+        self.__root.bind('<Key>', self._key_pressed)
 
     def _place_widgets(self):
         self.__label_left.place(relx=0.5, rely=0.5, anchor=tk.E)
@@ -76,3 +73,15 @@ class TestWindow:
         self.st.restart_test()
 
         self.start_test()
+
+    def _key_pressed(self, event=None):
+        try:
+            if event.char.lower() == self.__label_left.cget('text')[0].lower():
+                # Delete letter from the right side (generated text)
+                self.__label_left.configure(text=self.__label_left.cget('text')[1:])
+                # Add letter to the left side (user input)
+                self.__label_right.configure(text=self.__label_right.cget('text') + event.char.lower())
+                # Update current letter label
+                self.__current_letter_label.configure(text=self.__label_left.cget('text')[0])
+        except tk.TclError:
+            pass
