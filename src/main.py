@@ -5,6 +5,6 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 
 w = TestWindow()
-w.start_test()
+w.start()
 w.run_window()
 
