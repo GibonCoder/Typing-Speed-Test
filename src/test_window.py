@@ -1,5 +1,6 @@
 import tkinter as tk
 from text_generator import TextGenerator
+from speed_test import SpeedTest
 
 tg = TextGenerator()
 
@@ -30,6 +31,7 @@ class TestWindow:
 
         self.__root.bind('<Key>', self._key_pressed)
 
+    # Remove it
     def _configure_time(self):
         self._passed_seconds = 0
         self.__root.after(60000, self._stop_test)
@@ -51,12 +53,14 @@ class TestWindow:
         self.__label_right.configure(text=self._text[self._split_point:])
         self.__current_letter_label.configure(text=self._text[self._split_point])
 
+    # Adjust it
     def start_test(self):
         self._configure_window()
         self._configure_time()
         self._set_text()
         self._place_widgets()
 
+    # Adjust it
     def _stop_test(self):
         self._write_able = False
 
@@ -71,6 +75,7 @@ class TestWindow:
         self.__result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.__result_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
+    # Adjust it
     def restart(self):
         self.__result_label.place_forget()
         self.__result_button.place_forget()
@@ -79,6 +84,7 @@ class TestWindow:
 
         self.start_test()
 
+    # Remove it
     def _add_second(self):
         self._passed_seconds += 1
         self.__time_left_label.configure(text=f'{self._passed_seconds} Seconds')
@@ -86,6 +92,7 @@ class TestWindow:
         if self._write_able:
             self.__root.after(1000, self._add_second)
 
+# Adjust it
     def _key_pressed(self, event=None):
         try:
             if event.char.lower() == self.__label_right.cget('text')[0].lower():
