@@ -22,3 +22,6 @@ class SpeedTest:
         amount_of_words = len(user_lbl.cget('text'.split(' ')))
 
         return amount_of_words
+
+    def restart_test(self):
+        self._write_able = True
