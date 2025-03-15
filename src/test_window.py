@@ -11,8 +11,7 @@ class TestWindow:
         self._split_point = 0
         self._text = None
         self._user_input = None
-        self._write_able = True
-        self._passed_seconds = 0
+        self.st = SpeedTest()
         # Window
         self.__root = tk.Tk()
         # Widgets
